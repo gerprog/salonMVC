@@ -1,7 +1,14 @@
 ﻿@model salonMVC.Models.TreatmentType
 @{
-    ViewBag.Title = "Browse";
+    ViewBag.TreatmentName = "Browse";
 }
 
 <h2>Browsing TreatmentType: @Model.Name</h2>
-
+<ul>
+    @foreach (var treatment in Model.Treatments)
+    {
+        <li>
+            @treatment.TreatmentName
+        </li>
+    }
+</ul>

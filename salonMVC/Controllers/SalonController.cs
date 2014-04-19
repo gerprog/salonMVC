@@ -9,24 +9,21 @@ namespace salonMVC.Controllers
 {
     public class SalonController : Controller
     {
+        SalonEntities salonDB = new SalonEntities();
         //
         // GET: /Salon/
         public ActionResult Index()
         {
-            var treatmentTypes = new List<TreatmentType>
-            {
-                new TreatmentType { Name = "Hair Styles"},
-                new TreatmentType { Name = "Hair Cuts"},
-                new TreatmentType { Name = "Facial Treaments"},
-                new TreatmentType { Name = "Nail Treaments"}
-            };
+            var treatmentTypes = salonDB.TreatmentTypes.ToList();
             return View(treatmentTypes);
         }
         //
         // GET: /Salon/Browse?treatment=Hairdye
         public ActionResult Browse(string treatmentType)
         {
-            var treatmentTypeModel = new TreatmentType { Name = treatmentType };
+            // Retrieve TreatmentType and its Associated Treatments from database
+            var treatmentTypeModel = salonDB.TreatmentTypes.Include("Treatments")
+                .Single(g => g.Name == treatmentType);
 
             return View(treatmentTypeModel);
         }
