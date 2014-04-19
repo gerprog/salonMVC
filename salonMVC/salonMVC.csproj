@@ -166,6 +166,9 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\SalonEntities.cs" />
+    <Compile Include="Models\SampleDataSalon.cs" />
+    <Compile Include="Models\Stylist.cs" />
     <Compile Include="Models\Treatment.cs" />
     <Compile Include="Models\TreatmentType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
