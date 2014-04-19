@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using salonMVC.Models;
 
 namespace salonMVC.Controllers
 {
@@ -12,22 +13,29 @@ namespace salonMVC.Controllers
         // GET: /Salon/
         public ActionResult Index()
         {
-            return View();
+            var treatmentTypes = new List<TreatmentType>
+            {
+                new TreatmentType { Name = "Hair Styles"},
+                new TreatmentType { Name = "Hair Cuts"},
+                new TreatmentType { Name = "Facial Treaments"},
+                new TreatmentType { Name = "Nail Treaments"}
+            };
+            return View(treatmentTypes);
         }
         //
         // GET: /Salon/Browse?treatment=Hairdye
-        public string Browse(string treatment)
+        public ActionResult Browse(string treatmentType)
         {
-            string message = HttpUtility.HtmlEncode("Salon.Browse, Treatment = " + treatment);
+            var treatmentTypeModel = new TreatmentType { Name = treatmentType };
 
-            return message;
+            return View(treatmentTypeModel);
         }
         //
         // GET: /Salon/Details
-        public string Details(int id)
+        public ActionResult Details(int id)
         {
-            string message = "Salon.Details, ID = " + id;
-            return message;
+            var treatment = new Treatment { TreatmentName = "Treatment " + id };
+            return View(treatment);
         }
     }
 }

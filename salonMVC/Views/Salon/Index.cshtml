@@ -1,0 +1,16 @@
+﻿@model IEnumerable<salonMVC.Models.TreatmentType>
+@{
+    ViewBag.Title = "Salon";
+}
+<h3>Browse Treatment Types</h3>
+<p>
+    Select from @Model.Count()
+    treatmentTypes:
+</p>
+<ul>
+    @foreach (var treatmentType in Model)
+    {
+         <li>@Html.ActionLink(treatmentType.Name,
+"Browse", new { treatmentType = treatmentType.Name })</li>
+    }
+</ul>
