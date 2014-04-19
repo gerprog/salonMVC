@@ -8,7 +8,8 @@
     @foreach (var treatment in Model.Treatments)
     {
         <li>
-            @treatment.TreatmentName
+            @Html.ActionLink(treatment.TreatmentName,
+  "Details", new { id = treatment.TreatmentId })
         </li>
     }
 </ul>

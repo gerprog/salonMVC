@@ -18,7 +18,7 @@ namespace salonMVC.Controllers
             return View(treatmentTypes);
         }
         //
-        // GET: /Salon/Browse?treatment=Hairdye
+        // GET: /Salon/Browse?treatmentType=Waxing
         public ActionResult Browse(string treatmentType)
         {
             // Retrieve TreatmentType and its Associated Treatments from database
@@ -31,7 +31,8 @@ namespace salonMVC.Controllers
         // GET: /Salon/Details
         public ActionResult Details(int id)
         {
-            var treatment = new Treatment { TreatmentName = "Treatment " + id };
+            var treatment = salonDB.Treatments.Find(id);
+
             return View(treatment);
         }
     }
