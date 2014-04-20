@@ -10,5 +10,7 @@ namespace salonMVC.Models
     {
         public DbSet<Treatment> Treatments { get; set; }
         public DbSet<TreatmentType> TreatmentTypes { get; set; }
+
+        public System.Data.Entity.DbSet<salonMVC.Models.Stylist> Stylists { get; set; }
     }
 }
